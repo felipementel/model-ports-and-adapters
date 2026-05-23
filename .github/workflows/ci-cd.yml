@@ -48,8 +48,8 @@ jobs:
       environment: ${{ inputs.environment || 'DEV' }}
       dotnetVersion: '10.x'
       projectBaseDir: './src'
-      solutionFileName: 'MyProject.slnx'
-      mainProject: 'MyProject.Api'
+      solutionFileName: 'PortsAndAdapters.slnx'
+      mainProject: 'Usuarios.Api'
       testsFolder: 'tests'
       reportTitle: 'My Project API'
       sonarExclusions: ''
