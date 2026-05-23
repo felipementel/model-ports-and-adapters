@@ -50,7 +50,7 @@ jobs:
       projectBaseDir: './src'
       solutionFileName: 'PortsAndAdapters.slnx'
       mainProject: 'Usuarios.Api'
-      testsFolder: 'tests'
+      testsFolder: '../tests'
       reportTitle: 'My Project API'
       sonarExclusions: ''
       imageName: 'myproject-api'
