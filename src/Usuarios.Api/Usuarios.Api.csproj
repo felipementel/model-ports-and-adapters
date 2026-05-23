@@ -9,7 +9,7 @@
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 		<DockerfileContext>..\..</DockerfileContext>
 		<VersionPrefix>rc</VersionPrefix>
-		<Version>.0.1.2</Version>
+		<Version>0.1.2</Version>
 		<VersionSuffix>alfa</VersionSuffix>
 	</PropertyGroup>
 
