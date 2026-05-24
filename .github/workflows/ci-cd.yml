@@ -55,8 +55,8 @@ jobs:
       sonarExclusions: ''
       imageName: 'myproject-api'
       openAPIFolder: 'open-api'
-      dockerFileFullPath: './src/Dockerfile'
-      dockerBuildContext: '.'
+      dockerFileFullPath: './docker/Dockerfile'
+      dockerBuildContext: './src/'
       registry: 'ghcr.io'
       # novos
       msgCanalDeploy: 'test'
