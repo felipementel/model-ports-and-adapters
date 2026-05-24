@@ -47,7 +47,7 @@ jobs:
       buildMode: ${{ github.event_name == 'workflow_dispatch' && inputs.buildMode || 'Build' }}
       environment: ${{ inputs.environment || 'DEV' }}
       dotnetVersion: '10.x'
-      projectBaseDir: './src'
+      projectBaseDir: '.\src'
       solutionFileName: 'PortsAndAdapters.slnx'
       mainProject: 'Usuarios.Api'
       testsFolder: 'tests'
@@ -55,11 +55,11 @@ jobs:
       sonarExclusions: ''
       imageName: 'myproject-api'
       openAPIFolder: 'open-api'
-      dockerFileFullPath: './docker/Dockerfile'
-      dockerBuildContext: './src/'
+      dockerFileFullPath: 'docker/Dockerfile'
+      dockerBuildContext: '.'
       registry: 'ghcr.io'
       # novos
-      msgCanalDeploy: 'test'
+      # msgCanalDeploy: 'test'
       # registryUsername: ''  # Deixe vazio para usar github.actor (padrão ghcr.io)
     permissions:
       security-events: write
