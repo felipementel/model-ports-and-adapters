@@ -1,3 +1,4 @@
+using Scalar.AspNetCore;
 using Usuarios.Adapters.Repositories;
 using Usuarios.Api.Endpoints;
 using Usuarios.Application.Services;
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddOpenApi();
 builder.Services.AddSingleton<IUserRepository, InMemoryUserRepository>();
 builder.Services.AddSingleton<UserService>();
 
@@ -22,9 +24,12 @@ if (!isOpenApiGeneration)
     // Ex: conexões externas, validações fortes de secrets, hosted services etc.
 }
 
+app.MapOpenApi();
 app.UseSwagger();
 app.UseSwaggerUI();
+app.MapScalarApiReference();
 
+app.MapRootEndpoint();
 app.MapHealthEndpoints();
 app.MapUserEndpoints();
 
