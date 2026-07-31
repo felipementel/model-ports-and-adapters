@@ -68,7 +68,6 @@ jobs:
       SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
       GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SAFETY_API_KEY: ${{ secrets.SAFETY_API_KEY }}
       # SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
   deploy:
