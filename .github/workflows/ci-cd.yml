@@ -54,7 +54,7 @@ jobs:
       report_title: 'Pos Graduacao'
       sonar_exclusions: ''
       image_name: 'usuariosapi'
-      open_api_dir: 'open-api'
+      openapi_dir: 'open-api'
       dockerfile_dir: './docker'
       docker_build_context: '.'
       docker_setup: true
