@@ -44,23 +44,21 @@ jobs:
     name: Build
     uses: felipementel/gh-actions/.github/workflows/dotnet-sandbox-api-build.yml@main
     with:
-      buildMode: ${{ github.event_name == 'workflow_dispatch' && inputs.buildMode || 'Build' }}
-      environment: ${{ inputs.environment || 'DEV' }}
-      dotnetVersion: '10.x'
-      projectBaseDir: './src'
-      solutionFileName: 'PortsAndAdapters.slnx'
-      mainProject: 'Usuarios.Api'
-      testsFolder: 'tests'
-      reportTitle: 'My Project API'
-      sonarExclusions: ''
-      imageName: 'myproject-api'
-      openAPIFolder: 'open-api'
-      dockerFileFullPath: 'docker/Dockerfile'
-      dockerBuildContext: '.'
+      build_mode: ${{ github.event_name == 'workflow_dispatch' && inputs.buildMode || 'Build' }}
+      environment: ${{ github.event_name == 'workflow_dispatch' && inputs.environments || 'DEV' }}
+      dotnet_version: '10.x'
+      project_base_dir: ./src
+      solution_file_name: 'UsuariosApi.slnx'
+      main_project: 'Usuarios.Api'
+      tests_folder: 'tests'
+      report_title: 'Pos Graduacao'
+      sonar_exclusions: ''
+      image_name: 'usuariosapi'
+      openapi_folder: 'open-api'
+      dockerfile_folder: './docker'
+      docker_build_context: '.'
+      docker_setup: true
       registry: 'ghcr.io'
-      # novos
-      # msgCanalDeploy: 'test'
-      # registryUsername: ''  # Deixe vazio para usar github.actor (padrão ghcr.io)
     permissions:
       security-events: write
       contents: write
@@ -83,16 +81,14 @@ jobs:
     needs: [build]
     uses: felipementel/gh-actions/.github/workflows/dotnet-sandbox-api-deploy-aca.yml@main
     with:
-      environment: ${{ inputs.environment || 'DEV' }}
-      tagVersion: ${{ needs.build.outputs.tag-version }}
-      imageName: 'myproject-api'
+      environment: ${{ inputs.environments || 'DEV' }}
+      tag_version: ${{ needs.build.outputs.tag-version }}
+      image_name: 'usuariosapi'
       registry: 'ghcr.io'
-      # registryUsername: ''  # Deixe vazio para usar github.actor (padrão ghcr.io)
-      azureRgBase: ${{ vars.AZURE_RG }}
-      acaeBaseName: ${{ vars.AZURE_ACAE_BASE }}
-      healthCheckPath: '/health/live'
-      deployPollMaxAttempts: '20'
-      deployPollIntervalSeconds: '15'
+      acae_base_name: ${{ vars.AZURE_ACAE_BASE }}
+      health_check_path: '/health/live'
+      deploy_poll_max_attempts: '20'
+      deploy_poll_interval_seconds: '15'
     permissions:
       id-token: write
       contents: read
