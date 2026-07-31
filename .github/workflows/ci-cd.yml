@@ -50,12 +50,12 @@ jobs:
       project_base_dir: ./src
       solution_file_name: 'UsuariosApi.slnx'
       main_project: 'Usuarios.Api'
-      tests_folder: 'tests'
+      tests_dir: 'tests'
       report_title: 'Pos Graduacao'
       sonar_exclusions: ''
       image_name: 'usuariosapi'
-      openapi_folder: 'open-api'
-      dockerfile_folder: './docker'
+      open_api_dir: 'open-api'
+      dockerfile_dir: './docker'
       docker_build_context: '.'
       docker_setup: true
       registry: 'ghcr.io'
